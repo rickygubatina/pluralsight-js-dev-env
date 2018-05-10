@@ -1,10 +1,11 @@
 import path from "path";
 import webpack from "webpack";
+// import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 export default {
   // debug: true,
   // noInfo: false,
-  mode: "development",
+  // mode: "production",
   devtool: "source-map",
   entry: [
     path.resolve(__dirname, "src/index")
@@ -17,9 +18,9 @@ export default {
   },
   plugins: [
     // Eliminate duplicate packages when generating bundle
-    new webpack.optimize.DedupePlugin(),
+    //new webpack.optimize.DedupePlugin(),
     // Minify JS
-    new webpack.optimize.UglifyPlugin()
+    webpack.optimize.minimize()
   ],
   module: {
     rules: [
